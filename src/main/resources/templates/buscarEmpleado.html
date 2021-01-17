@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<head th:replace="fragmentos/header :: head"></head>
+<body>
+	<div th:insert="/fragmentos/header :: menu"> </div>
+	<br>
+	<div class="container mt-4">
+	
+ 
+
+<div th:switch="${not #lists.isEmpty(empleados)}? ${true}  : ${false}">
+    <span th:case="${false}">
+    	<h3> No se encontraron resultados </h3>
+</span>
+    <span th:case="${true}">
+    <h3> 
+
+<h1>Empleados Encontrados</h1>
+		 <br>
+		 <table class="table">
+	 		<thead>
+		 		<tr>
+		 			<th scope="col1"> ID </th>
+		 			<th scope="col1"> NOMBRES</th>
+		 			<th scope="col1"> ROl</th>
+		 			<th scope="col1"> ACCIONES</th>
+		 		 </tr>
+		 	 </thead>
+		 	 <tbody>
+		 	 	<tr th:each="empleado : ${empleados}">
+		 	 		<th th:text="${empleado.id}" scope="row"> </th>
+		 	 		<td th:text="${empleado.nombre}"> </td> 
+		 	 		<td th:text="${empleado.rol}"> </td>
+		 	 		<td >
+		 	 			<a href="#" class="btn btn-succcess"> Editar </a>
+		 	 			<a href="#" class="btn btn-danger"> Eliminar </a>
+		 	 		</td>
+		 	 	</tr>
+		 	 </tbody>
+		 	
+		 </table> 
+ </h3>
+</span>
+    
+</div>
+	
+	
+		
+	</div>
+
+</body>
+</html>
